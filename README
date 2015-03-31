@@ -1,0 +1,46 @@
+DAYCARE WEBSERVICE
+------------------
+
+Introduction
+------------
+
+This is a project in the LiU course TDDD27 Advanced web programming, during 
+spring 2015. 
+
+The group has only one member, Fredrik Persson (frepe360).
+
+Functional specification
+------------------------
+
+This project will create a web app for parent-run daycare centers. 
+I.e. "föräldrakooperativ". 
+
+It will support the following features:
+
+1. Public page for visitors
+2. Login for parents
+3. Login for staff
+4. When logged in, a user (parent or staff) shall be able to edit
+   their personal profile
+5. When logged in, a parent shall be able to edit/create the information
+   about his child/children in the daycare center
+6. A child shall not have a login account
+7. Children may have one or more parents
+8. A staff member shall be able to edit/create the information about
+   any child
+9. An administrator shall be able to edit any information about any
+   child or user
+10. A logged in user shall be able to see a list of children, their parents
+    and their contact information (phone number, email, address)
+
+Techical specification
+----------------------
+
+The front end will be written in angularjs.
+
+The backend will be written in nodejs/expressjs.
+
+The persistence will be handled by MongoDB.
+
+Authentication will be done through passport using local strategy.
+
