@@ -33,14 +33,21 @@ It will support the following features:
 10. A logged in user shall be able to see a list of children, their parents
     and their contact information (phone number, email, address)
 
+Care shall be taken to make sure that the design allows for further extensions.
+The intention of this project is to develop it further after the course is complete.
+
+Future features include email lists, sms services, groups (such as, for example,
+some parents forming a board), storing documents and so on.
+
 Techical specification
 ----------------------
 
 The front end will be written in angularjs.
 
-The backend will be written in nodejs/expressjs.
+The backend will be written in nodejs/expressjs along with (optionally) bower, jade,
+stylus, morgan and possibly other tools.
 
-The persistence will be handled by MongoDB.
+The persistence will be handled by MongoDB and mongoose.
 
 Authentication will be done through passport using local strategy.
 
