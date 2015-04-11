@@ -11,5 +11,8 @@
     "url": "git@gitlab.ida.liu.se:frepe360/tddd272015_daycare.git"
   },
   "author": "Fredrik Persson",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
 }
