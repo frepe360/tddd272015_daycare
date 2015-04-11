@@ -1,0 +1,15 @@
+{
+  "name": "tddd272015_daycare",
+  "version": "1.0.0",
+  "description": "A webapp for parent run daycare centers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.ida.liu.se:frepe360/tddd272015_daycare.git"
+  },
+  "author": "Fredrik Persson",
+  "license": "ISC"
+}
