@@ -1,0 +1,12 @@
+{
+  "name": "tddd272015_daycare",
+  "version": "0.0.0",
+  "authors": [
+    "Fredrik Persson <frepe360@student.liu.se>"
+  ],
+  "description": "Daycare app for TDDD27",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.3.15"
+  }
+}
