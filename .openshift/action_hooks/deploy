@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-HOME=$HOME/app-root/runtime
-cd ~/repo
+cd nodejs
 npm install bower
-./node_modules/.bin/bower install
+cd ..
+HOME=$HOME/app-root/runtime/repo
+cd app-root/repo
+bower install
