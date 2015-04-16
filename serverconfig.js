@@ -1,5 +1,6 @@
 var path = require('path');
 var express = require('express');
+var mongoose = require('mongoose');
 
 var app = express();
 
@@ -17,6 +18,27 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('*', function(req, res) {
    res.render('index');
+});
+
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+console.log(env);
+
+// Mongoose config
+var dburl;
+if (env === 'development') {
+   dburl = 'mongodb://db_user:db_password@localhost/daycaredb';
+}
+if (env === 'production') {
+   dburl = 'mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/';
+}
+
+console.log('dburl: ' + dburl);
+
+mongoose.connect(dburl, function(err) {
+   if(err) {
+      console.log(err);
+   }
+   console.log('Connected to database');
 });
 
 module.exports = app;
