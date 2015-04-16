@@ -1,4 +1,4 @@
-var app = require('./serverconfig');
+var app = require('./server/config/config.js');
 
 var serverip = process.env.OPENSHIFT_NODEJS_IP;
 var serverport = process.env.OPENSHIFT_NODEJS_PORT || 3000;
