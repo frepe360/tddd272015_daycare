@@ -26,7 +26,7 @@ app.get('*', function(req, res) {
 
 console.log('My node version is: ' + process.version);
 
-app.listen(config.serverport, function() {
-    console.log('%s: Node server started on port %d ...', Date(Date.now()), config.serverport);
+app.listen(config.serverport, config.serverip, function() {
+    console.log('%s: Node server started on port %d:%d ...', Date(Date.now()), config.serverip, config.serverport);
 });
 
