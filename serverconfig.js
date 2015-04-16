@@ -29,7 +29,9 @@ if (env === 'development') {
    dburl = 'mongodb://db_user:db_password@localhost/daycaredb';
 }
 if (env === 'production') {
-   dburl = 'mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/';
+   var mongohost = process.env.OPENSHIFT_MONGODB_DB_HOST;
+   var mongoport = process.env.OPENSHIFT_MONGODB_DB_PORT;
+   dburl = 'mongodb://admin:gKP6_hS2fRv1@' + mongohost + ':' + mongoport;
 }
 
 console.log('dburl: ' + dburl);
