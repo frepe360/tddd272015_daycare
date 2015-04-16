@@ -4,8 +4,7 @@
   "description": "A webapp for parent run daycare centers",
   "main": "server.js",
   "scripts": {
-    "test": "mocha test.js",
-    "postinstall": "HOME=$HOME/app-root/runtime node node_modules/bower/bin/bower install"
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
