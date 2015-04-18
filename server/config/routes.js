@@ -8,6 +8,10 @@ module.exports = function(app, config) {
     });
     // Ugly hack ends here
 
+    app.get('/partials/:partialPath', function(req, res) {
+        res.render('partials/' + req.params.partialPath);
+    });
+
     app.get('*', function(req, res) {
         res.render('index');
     });
