@@ -1,2 +1,10 @@
 doctype
-include scripts
+
+html
+    head
+        base(href="/")
+        title DaycareApp
+        link(rel="stylesheet", href="/vendor/bootstrap/dist/bootstrap.css")
+    body(ng-app)
+        block main-content
+        include scripts

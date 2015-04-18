@@ -1,27 +1,20 @@
 include ../includes/layout
 
-doctype
-html
-    head
-        base(href="/")
-        title DaycareApp
-        link(rel="stylesheet", href="/vendor/bootstrap/dist/bootstrap.css")
-    body(ng-app)
-        .navbar.navbar-default
-            .container
-                .navbar-header
-                     button(class='navbar-toggle', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-                        span.sronly
-                        span.icon-bar
-                        span.icon-bar
-                    a(class='navbar-brand', href='/#') Daycare app
-                #bs-example-navbar-collapse-1(class='collapse navbar-collapse')
-                    ul(class='nav navbar-nav')
-                        li
-                            a(href='/faq') FAQ
-                        li
-                            a(href='/addresslist') Address list
-
+block main-content
+    .navbar.navbar-default
         .container
-            h1 Daycare App
-            p If this says 4, then angular is installed: {{2 + 2}}
+            .navbar-header
+                button(class='navbar-toggle', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                    span.sronly
+                    span.icon-bar
+                    span.icon-bar
+            a(class='navbar-brand', href='/#') Daycare app
+            #bs-example-navbar-collapse-1(class='collapse navbar-collapse')
+                ul(class='nav navbar-nav')
+                    li
+                        a(href='/faq') FAQ
+                    li
+                        a(href='/addresslist') Address list
+    .container
+        h1 Daycare App
+        p If this says 4, then angular is installed: {{2 + 2}}
