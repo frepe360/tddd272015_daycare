@@ -2,4 +2,9 @@
     .jumbotron
         h1.text-center Daycare Center Web
         p.text-center Welcome to the daycare center web!
+    .row
+        .col-md-6
+            div(ng-include="'partials/frontpage-photo'")
+        .col-md-6
+            div(ng-include="'partials/contact'")
     p This is a test to see if angular is broken, should say 4: {{2+2}}
