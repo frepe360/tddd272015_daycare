@@ -1,8 +1,8 @@
-.navbar-right
+.navbar-right(ng-controller="dcNavBarLoginCtrl")
     form.navbar-form
         ul
             .form-group
-                input.form-control(placeholder="Username")
+                input.form-control(placeholder="Username", ng-model="username")
             .form-group
-                input.form-control(type="password", placeholder="Password")
-            button.btn Sign in
+                input.form-control(type="password", placeholder="Password", ng-model="password")
+            button.btn(ng-click="signin(username, password)") Sign in

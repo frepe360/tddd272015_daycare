@@ -12,5 +12,11 @@ angular.module('app').controller('dcMainCtrl', function($scope) {
 });
 
 angular.module('app').controller('dcFaqCtrl', function($scope) {
-    $scope.testvar = 'this is a faq variable to make sure the controller works';
+
+});
+
+angular.module('app').controller('dcNavBarLoginCtrl', function($scope) {
+    $scope.signin = function(username, password) {
+        console.log(username + " with password " + password + " is trying to sign in");
+    }
 });
