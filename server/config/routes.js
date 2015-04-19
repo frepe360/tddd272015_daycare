@@ -1,3 +1,5 @@
+var passport = require('passport');
+
 module.exports = function(app, config) {
 
     // This is an ugly hack; node would not set the content-type to text/css
@@ -8,14 +10,16 @@ module.exports = function(app, config) {
     });
     // Ugly hack ends here
 
-    app.post('/login', function(req, res) {
-        console.log('Yep, the user tried to log in');
-        if (req.body.username === 'asdf' && req.body.password === 'asdf') {
-            res.sendStatus(200);
-        } else {
-            res.sendStatus(401);
-        }
-
+    app.post('/login', function(req, res, next) {
+        var auth = passport.authenticate('local', function(err, user) {
+            if(err) { return next(err); }
+            if(user === true) {
+                res.sendStatus(200);
+            } else {
+                res.sendStatus(401);
+            }
+        });
+        auth(req, res, next);
     });
 
     app.get('/partials/:partialPath', function(req, res) {
