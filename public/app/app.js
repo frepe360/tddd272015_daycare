@@ -15,8 +15,14 @@ angular.module('app').controller('dcFaqCtrl', function($scope) {
 
 });
 
-angular.module('app').controller('dcNavBarLoginCtrl', function($scope) {
+angular.module('app').controller('dcNavBarLoginCtrl', function($scope, $http) {
     $scope.signin = function(username, password) {
-        console.log(username + " with password " + password + " is trying to sign in");
+        console.log('Sending POST to /login with username: ' + username + ' and password ' + password);
+        $http.post('/login', {username: username, password: password}).then(function() {
+            console.log('Successfully logged in!');
+        },
+        function() {
+            console.log('Login failed!')
+        });
     }
 });

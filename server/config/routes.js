@@ -8,6 +8,16 @@ module.exports = function(app, config) {
     });
     // Ugly hack ends here
 
+    app.post('/login', function(req, res) {
+        console.log('Yep, the user tried to log in');
+        if (req.body.username === 'asdf' && req.body.password === 'asdf') {
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(401);
+        }
+
+    });
+
     app.get('/partials/:partialPath', function(req, res) {
         res.render('partials/' + req.params.partialPath);
     });
