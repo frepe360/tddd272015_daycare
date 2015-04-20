@@ -15,6 +15,7 @@ User.find({}).exec(function(err, collection) {
         // TODO: Disable test users for production systems
         User.create({firstName: 'Fredrik', lastName: 'Persson', username: 'fredrik', password: 'fredrik'});
         User.create({firstName: 'Alice', lastName: 'Persson', username: 'alice', password: 'alice'});
+        User.create({firstName: 'Test', lastName: 'Testsson', username: 'asdf', password: 'asdf'});
     } else {
         console.log('Test users created already');
     }
