@@ -1,6 +1,4 @@
-var express = require('express'),
-    passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
+var express = require('express');
 
 app = express();
 
@@ -12,12 +10,7 @@ require('./server/config/mongoose.js')(config);
 
 require('./server/config/express.js')(app, config);
 
-passport.use(new LocalStrategy(function(username, password, done) {
-    if (username === 'asdf' && password === 'asdf') {
-        return done(null, true);
-    }
-    return done(null, false);
-}));
+require('./server/config/passport.js')();
 
 require('./server/config/routes.js')(app, config);
 
