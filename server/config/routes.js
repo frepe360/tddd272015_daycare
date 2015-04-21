@@ -11,15 +11,27 @@ module.exports = function(app, config) {
     // Ugly hack ends here
 
     app.post('/login', function(req, res, next) {
-        var auth = passport.authenticate('local', function(err, user) {
+        var auth = passport.authenticate('local', function(err, user, info) {
             if(err) { return next(err); }
-            if(user === true) {
-                res.sendStatus(200);
+            if(user) {
+                req.logIn(user, function(err) {
+                    if(err) return next(err);
+                    return res.sendStatus(200);
+                })
             } else {
                 res.sendStatus(401);
             }
         });
         auth(req, res, next);
+    });
+
+    app.get('/testauth', function(req, res, next) {
+        if (req.isAuthenticated()) {
+           console.log('The user is authenticated');
+        } else {
+           console.log('The user is NOT authenticated');
+        }
+        next();
     });
 
     app.get('/partials/:partialPath', function(req, res) {
