@@ -10,5 +10,12 @@ angular.module('app').controller('dcNavBarLoginCtrl', function($scope, $http) {
                 console.log('Login failed!')
                 $scope.userAuthenticated = false;
             });
-    }
+    };
+
+    $scope.signout = function() {
+        $http.post('/logout').then(function() {
+            console.log('Logging out');
+            $scope.userAuthenticated = false;
+        });
+    };
 });

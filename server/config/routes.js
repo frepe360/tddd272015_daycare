@@ -25,6 +25,12 @@ module.exports = function(app, config) {
         auth(req, res, next);
     });
 
+    app.post('/logout', function(req, res) {
+        console.log('User is logging out');
+        req.logout();
+        res.end();
+    })
+
     app.get('/testauth', function(req, res, next) {
         if (req.isAuthenticated()) {
            console.log('The user is authenticated');
