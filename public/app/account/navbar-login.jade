@@ -6,3 +6,5 @@
             .form-group
                 input.form-control(type="password", placeholder="Password", ng-model="password")
             button.btn(ng-click="signin(username, password)") Sign in
+    form.dropdown(ng-hide="!userAuthenticated")
+        p tjoho
