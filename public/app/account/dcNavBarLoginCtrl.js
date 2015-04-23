@@ -3,19 +3,19 @@ angular.module('app').controller('dcNavBarLoginCtrl', function($scope, $http) {
     $scope.signin = function(username, password) {
         console.log('Sending POST to /login with username: ' + username + ' and password ' + password);
         $http.post('/login', {username: username, password: password}).then(function() {
-                console.log('Successfully logged in!');
                 $scope.userAuthenticated = true;
             },
             function() {
-                console.log('Login failed!')
                 $scope.userAuthenticated = false;
             });
     };
 
     $scope.signout = function() {
         $http.post('/logout').then(function() {
-            console.log('Logging out');
+            $scope.username = "";
+            $scope.password = "";
             $scope.userAuthenticated = false;
+
         });
     };
 });
