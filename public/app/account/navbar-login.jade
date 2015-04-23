@@ -1,11 +1,13 @@
 .navbar-right(ng-controller="dcNavBarLoginCtrl")
     form.navbar-form(ng-hide="userAuthenticated")
-        ul
-            .form-group
-                input.form-control(placeholder="Username", ng-model="username")
-            .form-group
-                input.form-control(type="password", placeholder="Password", ng-model="password")
-            button.btn(ng-click="signin(username, password)") Sign in
+        ul.nav.navbar-right
+            li
+                a(href="/signup") Sign up
+        .form-group
+            input.form-control(placeholder="Username", ng-model="username")
+        .form-group
+            input.form-control(type="password", placeholder="Password", ng-model="password")
+        button.btn(ng-click="signin(username, password)") Sign in
     form.navbar-form(ng-hide="!userAuthenticated")
         ul
             .form-group

@@ -1,0 +1,13 @@
+.container
+    form(name="signupForm")
+        .form-group
+            label First name
+            input.form-control(placeholder="First name", type="text" ,ng-model="firstname", required)
+            label Last name
+            input.form-control(placeholder="First name", type="text", ng-model="lastname", required)
+            label Email
+            input.form-control(placeholder="Email", type="email", ng-model="email", required)
+            label Password
+            input.form-control(placeholder="Password", type="password", ng-model="password", required)
+            .pull-right
+                button.btn(ng-click="signup()", ng-disabled="signupForm.$invalid") Submit
