@@ -1,4 +1,4 @@
-angular.module('app').controller('dcNavBarLoginCtrl', function($scope, $http) {
+angular.module('app').controller('dcNavBarLoginCtrl', function($scope, $http, $window) {
     $scope.userAuthenticated = false;
     $scope.signin = function(username, password) {
         console.log('Sending POST to /login with username: ' + username + ' and password ' + password);
@@ -11,6 +11,11 @@ angular.module('app').controller('dcNavBarLoginCtrl', function($scope, $http) {
     };
 
     $scope.signout = function() {
+        if(!!$window) {
+            console.log('This is someVar: ' + $window);
+        } else {
+            console.log('There was no someVar');
+        }
         $http.post('/logout').then(function() {
             $scope.username = "";
             $scope.password = "";

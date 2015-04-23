@@ -6,5 +6,7 @@ html
         title DaycareWeb
         link(rel="stylesheet", href="/vendor/bootstrap/dist/bootstrap.css")
     body(ng-app='app')
+        if !!someVar
+            p THERE WAS SOMETHING THERE!!!!
         block main-content
         include scripts

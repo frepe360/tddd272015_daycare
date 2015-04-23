@@ -45,6 +45,11 @@ module.exports = function(app, config) {
     });
 
     app.get('*', function(req, res) {
-        res.render('index');
+        if (req.user) {
+            console.log(req.user);
+        } else {
+            console.log('There was no user');
+        }
+        res.render('index', {someVar: 'this stuff'});
     });
 };
