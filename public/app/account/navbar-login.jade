@@ -8,4 +8,6 @@
             button.btn(ng-click="signin(username, password)") Sign in
     form.navbar-form(ng-hide="!userAuthenticated")
         ul
+            .form-group
+                p.navbar-text User: {{username}}
             button.btn(ng-click="signout()") Sign out
