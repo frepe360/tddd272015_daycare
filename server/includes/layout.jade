@@ -6,7 +6,8 @@ html
         title DaycareWeb
         link(rel="stylesheet", href="/vendor/bootstrap/dist/bootstrap.css")
     body(ng-app='app')
-        if !!someVar
-            p THERE WAS SOMETHING THERE!!!!
+        if !!userVar
+            script.
+                window.thePersistantUser = !{JSON.stringify(userVar)}
         block main-content
         include scripts
