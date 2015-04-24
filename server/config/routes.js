@@ -10,8 +10,11 @@ module.exports = function(app, config) {
     });
     // Ugly hack ends here
 
-    app.post('/api/users', function(req, res) {
+    app.post('/api/users', function(req, res, next) {
         console.log('Add the new user to the database');
+        console.log(req.body);
+        res.send(200);
+        res.end();
     });
 
     app.post('/login', function(req, res, next) {
