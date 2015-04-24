@@ -10,6 +10,10 @@ module.exports = function(app, config) {
     });
     // Ugly hack ends here
 
+    app.post('/api/users', function(req, res) {
+        console.log('Add the new user to the database');
+    });
+
     app.post('/login', function(req, res, next) {
         var auth = passport.authenticate('local', function(err, user, info) {
             if(err) { return next(err); }
