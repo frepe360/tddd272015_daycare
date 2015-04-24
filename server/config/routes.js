@@ -1,4 +1,5 @@
-var passport = require('passport');
+var passport = require('passport'),
+    mongoose = require('mongoose');
 
 module.exports = function(app, config) {
 
@@ -11,10 +12,16 @@ module.exports = function(app, config) {
     // Ugly hack ends here
 
     app.post('/api/users', function(req, res, next) {
-        console.log('Add the new user to the database');
         console.log(req.body);
-        res.send(200);
-        res.end();
+        var User = mongoose.model('User');
+
+        User.create(req.body, function(err, user) {
+            if(err) {
+                console.log(err.toString());
+                res.sendStatus(400);
+            }
+            res.sendStatus(200);
+        });
     });
 
     app.post('/login', function(req, res, next) {

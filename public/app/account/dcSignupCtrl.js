@@ -1,14 +1,20 @@
 angular.module('app').controller('dcSignupCtrl', function($scope, dcUser) {
     console.log('Trying to create a new user from dcUser');
-    var newUser = new dcUser();
-    console.log(newUser);
 
     $scope.signup = function() {
-        console.log('User tried to sign up');
+        var newUser = {
+            firstName: $scope.firstname,
+            lastName: $scope.lastname,
+            username: $scope.email,
+            password: $scope.password
+        }
+        var newUser = new dcUser(newUser);
+        console.log(newUser);
+
         newUser.$save().then(function() {
-            console.log('The save thing seem to have worked');
+            console.log('User created!');
         }, function(reason) {
-            console.log('Nope, creating a new user did not work...');
+            console.log('User creation failed!');
             console.log(reason);
         });
     }
