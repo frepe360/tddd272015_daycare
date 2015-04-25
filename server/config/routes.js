@@ -19,8 +19,12 @@ module.exports = function(app, config) {
             if(err) {
                 console.log(err.toString());
                 res.sendStatus(400);
+            } else {
+                req.logIn(user, function(err) {
+                    if(err) return next(err);
+                    return res.sendStatus(200);
+                })
             }
-            res.sendStatus(200);
         });
     });
 
