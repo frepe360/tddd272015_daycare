@@ -1,17 +1,11 @@
-angular.module('app').controller('dcNavBarLoginCtrl', function($scope, $http, $window) {
-    $scope.userAuthenticated = false;
-    if(!!$window.thePersistantUser) {
-        $scope.userAuthenticated = true;
-        $scope.username = $window.thePersistantUser.username;
-        $scope.password = $window.thePersistantUser.password;
-    }
+angular.module('app').controller('dcNavBarLoginCtrl', function($scope, $http, $window, dcUser, dcIdentity) {
+    $scope.identity = dcIdentity;
     $scope.signin = function(username, password) {
-        console.log('Sending POST to /login with username: ' + username + ' and password ' + password);
-        $http.post('/login', {username: username, password: password}).then(function() {
-                $scope.userAuthenticated = true;
+        $http.post('/login', {username: username, password: password}).then(function(res) {
+                dcIdentity.currentUser = new dcUser(res.data);
             },
             function() {
-                $scope.userAuthenticated = false;
+                console.log('Login failed');
             });
     };
 
@@ -19,7 +13,7 @@ angular.module('app').controller('dcNavBarLoginCtrl', function($scope, $http, $w
         $http.post('/logout').then(function() {
             $scope.username = "";
             $scope.password = "";
-            $scope.userAuthenticated = false;
+            $scope.identity.currentUser = undefined;
         });
     };
 });

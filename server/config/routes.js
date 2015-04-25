@@ -22,7 +22,7 @@ module.exports = function(app, config) {
             } else {
                 req.logIn(user, function(err) {
                     if(err) return next(err);
-                    return res.sendStatus(200);
+                    return res.send(user);
                 })
             }
         });
@@ -34,7 +34,7 @@ module.exports = function(app, config) {
             if(user) {
                 req.logIn(user, function(err) {
                     if(err) return next(err);
-                    return res.sendStatus(200);
+                    return res.send(user);
                 })
             } else {
                 res.sendStatus(401);
