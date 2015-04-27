@@ -1,4 +1,5 @@
 var mongoose = require('mongoose'),
+    childModel = require('../models/Child'),
     userModel = require('../models/User');
 
 module.exports = function(config) {
@@ -12,4 +13,5 @@ module.exports = function(config) {
     });
 };
 
+childModel.createTestChildren();
 userModel.createTestUsers();

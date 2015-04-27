@@ -4,7 +4,8 @@ angular.module('app').controller('dcSignupCtrl', function($scope, dcUser, $locat
             firstName: $scope.firstname,
             lastName: $scope.lastname,
             username: $scope.email,
-            password: $scope.password
+            password: $scope.password,
+            roles: ['parent']
         };
         var newUser = new dcUser(newUserData);
 
