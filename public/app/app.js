@@ -5,6 +5,7 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', { templateUrl: 'partials/main/main', controller: 'dcMainCtrl'})
         .when('/faq', { templateUrl: 'partials/faq/faq'})
+        .when('/child', { templateUrl: 'partials/child/child', controller: 'dcChildCtrl'})
         .when('/addresslist', { templateUrl: 'partials/addresslist/addresslist'})
         .when('/signup', { templateUrl: 'partials/account/signup', controller: 'dcSignupCtrl'})
 });

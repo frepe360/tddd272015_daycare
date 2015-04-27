@@ -19,9 +19,11 @@ var createTestUsers = function() {
     // Find a test child
     var testChild;
     Child.findOne({}).exec(function(err, child){
-        console.log('I found a kid!');
-        console.log(child);
-        testChild = child;
+        if(!!child) {
+            console.log('I found a kid!');
+            console.log(child);
+            testChild = child;
+        }
     });
 
     User.find({}).exec(function(err, collection) {
