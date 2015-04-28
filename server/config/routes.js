@@ -29,7 +29,10 @@ module.exports = function(app, config) {
     });
 
     app.get('/api/children', function(req, res) {
-        res.sendStatus(200);
+        var Child = mongoose.model('Child');
+        Child.find({}).exec(function(err, collection) {
+            res.json(collection);
+        })
     });
 
     app.post('/api/children', function(req, res, next) {

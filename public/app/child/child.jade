@@ -1,4 +1,5 @@
 .container
+    p(ng-repeat="child in children", ng-show="identity.isAuthenticated()") {{child.firstName + ' ' + child.lastName + ' ' + child.birthdate}}
     form(name="childForm" ng-show="identity.isAuthenticated()")
         .form-group
             label First name

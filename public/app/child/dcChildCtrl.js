@@ -1,6 +1,8 @@
 angular.module('app').controller('dcChildCtrl', function($scope, dcIdentity, dcChild) {
     $scope.identity = dcIdentity;
 
+    $scope.children = dcChild.query();
+
     $scope.createChild = function() {
         var newChildData = {
             firstName: $scope.firstname,
