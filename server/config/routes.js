@@ -28,6 +28,29 @@ module.exports = function(app, config) {
         });
     });
 
+    app.get('/api/children', function(req, res) {
+        res.sendStatus(200);
+    });
+
+    app.post('/api/children', function(req, res, next) {
+        var Child = mongoose.model('Child');
+        var childData = req.body;
+        childData.parents.push(req.user._id);
+        Child.create(childData, function(err, child) {
+            if(err) {
+                console.log(err.toString());
+                res.sendStatus(400);
+            } else {
+                // Update the user records with the new child
+                req.user.children.push(child._id);
+                req.user.save(function(err) {
+                    if(err) { res.status(400); return res.send({reason:err.toString()})};
+                    res.sendStatus(200);
+                })
+            }
+        })
+    });
+
     app.post('/login', function(req, res, next) {
         var auth = passport.authenticate('local', function(err, user, info) {
             if(err) { return next(err); }

@@ -8,6 +8,6 @@
             label Birthdate
             input.form-control(placeholder="Birthdate", type="date", ng-model="birthdate", required)
             .pull-right
-                        button.btn(ng-click="createChild()", ng-disabled="createChildForm.$invalid") Submit
+                button.btn(ng-click="createChild()", ng-disabled="childForm.$invalid") Submit
     label(ng-hide="identity.isAuthenticated()")
         p Please log in to access this page.

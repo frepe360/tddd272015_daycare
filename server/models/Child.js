@@ -5,7 +5,8 @@ var mongoose = require('mongoose');
 var childSchema = mongoose.Schema({
     firstName: {type: String},
     lastName: {type: String},
-    birthdate: {type: Date}
+    birthdate: {type: Date},
+    parents: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 });
 
 var Child = mongoose.model('Child', childSchema);
